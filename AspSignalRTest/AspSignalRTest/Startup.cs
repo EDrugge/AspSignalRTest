@@ -1,6 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Owin;
 
@@ -17,10 +17,9 @@ namespace AspSignalRTest
 
             Task.Run(() =>
             {
-                var i = 0;
                 while (true)
                 {
-                    hub.ButtonPress(i++);
+                    hub.TextUpdated(DateTime.Now.ToString("HH:mm:ss"));
                     Thread.Sleep(1000);
                 }
             });

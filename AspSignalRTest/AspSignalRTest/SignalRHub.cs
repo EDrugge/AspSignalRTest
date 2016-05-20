@@ -4,10 +4,10 @@ namespace AspSignalRTest
 {
     public class SignalRHub : Hub
     {
-        public void ButtonPress(int number)
+        public void TextUpdated(string text)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<SignalRHub>();
-            context.Clients.All.buttonPressed(number);
+            context.Clients.All.textUpdated(text);
         }
     }
 }
